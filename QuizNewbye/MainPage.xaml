@@ -2,16 +2,58 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#2B0B98"
              x:Class="QuizNewbye.MainPage">
 
     <!--<ContentPage.Behaviors>
-        <toolkit:StatusBarBehavior StatusBarColor="Blue" StatusBarStyle="LightContent"/>
+        <toolkit:StatusBarBehavior StatusBarColor="Blue" />
     </ContentPage.Behaviors>-->
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
-            Spacing="25">
+            Spacing="50"
+            VerticalOptions="Center"
+            >
+
+            <Image
+                Source="quiz-submissions.svg"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+             />
+
+            <Label 
+                Text="Teste seus conhecimentos"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                FontAttributes="Bold"
+                FontSize="30"
+                TextColor="White"
+                HorizontalOptions="Center"
+            />
+
+            <Button
+                x:Name="BTNIniciar"
+                BackgroundColor="Black"
+                BorderColor="White"
+                Text="Iniciar Atividade"
+                BorderWidth="0.5"
+                CornerRadius="10"
+                Clicked="BTNIniciar_Clicked"
+                HorizontalOptions="Center"
+            />
+
+            <Label
+                Text="Desenveloped by Filipe Paulo"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                FontSize="12"
+                FontAttributes="Italic"
+            />
+            
         </VerticalStackLayout>
     </ScrollView>
 
