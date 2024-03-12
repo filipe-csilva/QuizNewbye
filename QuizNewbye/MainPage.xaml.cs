@@ -18,10 +18,6 @@ namespace QuizNewbye
 
         private async void BTNIniciar_Clicked(object sender, EventArgs e)
         {
-            string pergunta = await DisplayPromptAsync("Pergunta", "Qual é o seu nome?", "Confirmar");
-
-            await SecureStorage.Default.SetAsync("nome", pergunta);
-
             await Navigation.PushAsync(new Questao1());
         }
     }

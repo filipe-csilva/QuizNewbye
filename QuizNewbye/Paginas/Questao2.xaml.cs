@@ -1,11 +1,11 @@
 namespace QuizNewbye.Paginas;
 
-public partial class Questao1 : ContentPage
+public partial class Questao2 : ContentPage
 {
     bool marcou = false;
     bool acerto = false;
 
-    public Questao1()
+    public Questao2()
     {
         InitializeComponent();
     }
@@ -40,27 +40,15 @@ public partial class Questao1 : ContentPage
         }
     }
 
-    private async void Button_Clicked(object sender, EventArgs e)
+    private void Button_Clicked(object sender, EventArgs e)
     {
         if (acerto)
         {
-            await DisplayAlert("Resultado", "Você Acertou!\nForam adicionados 10 Pontos", "OK");
-
-            string? valor = await SecureStorage.GetAsync("parcial");
-
-            double parcial = double.Parse(valor!);
-
-            parcial = parcial + 10;
-
-            await SecureStorage.SetAsync("parcial", parcial.ToString());
-
-            await Navigation.PushAsync(new Questao2());
+            DisplayAlert("Resultado", "Você Acertou!", "OK");
         }
         else
         {
-            await DisplayAlert("Resultado", "Que pena, Você Errou!", "OK");
-
-            await Navigation.PushAsync(new Questao2());
+            DisplayAlert("Resultado", "Que pena, Você Errou!", "OK");
         }
     }
 }
