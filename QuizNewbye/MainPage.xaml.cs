@@ -13,11 +13,19 @@ namespace QuizNewbye
         {
             base.OnAppearing();
 
-            SecureStorage.Default.Remove("nome");
+            SecureStorage.Default.RemoveAll();
+
+            SecureStorage.Default.SetAsync("parcial","0");
+
+            SecureStorage.Default.SetAsync("questoes", "0");
         }
 
         private async void BTNIniciar_Clicked(object sender, EventArgs e)
         {
+            string pergunta = await DisplayPromptAsync("Pergunta", "Qual é o seu nome?", "Confirmar");
+
+            await SecureStorage.Default.SetAsync("nome", pergunta);
+
             await Navigation.PushAsync(new Questao1());
         }
     }

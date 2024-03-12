@@ -42,15 +42,23 @@ public partial class Questao1 : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
+        string? questao = await SecureStorage.GetAsync("questoes");
+
+        int quantidadeQuestao = int.Parse(questao!);
+
+        quantidadeQuestao++;
+
+        await SecureStorage.SetAsync("questoes", quantidadeQuestao.ToString());
+
         if (acerto)
         {
-            await DisplayAlert("Resultado", "Você Acertou!\nForam adicionados 10 Pontos", "OK");
+            await DisplayAlert("Resultado", "Você Acertou!\nForam adicionados 1 Pontos", "OK");
 
             string? valor = await SecureStorage.GetAsync("parcial");
 
             double parcial = double.Parse(valor!);
 
-            parcial = parcial + 10;
+            parcial = parcial + 1;
 
             await SecureStorage.SetAsync("parcial", parcial.ToString());
 

@@ -6,7 +6,7 @@
     <VerticalStackLayout Margin="20">
         <Label 
             x:Name="LBLPergunta"
-            Text="Qual é a cor do Céu?"
+            Text="Quantos dedos tem faltando na mão esquerda de um ladrão?"
             FontSize="Large"
             TextColor="#2B0B98"
             FontAttributes="Bold"
@@ -19,28 +19,28 @@
             <VerticalStackLayout>
 
         <RadioButton
-            Content="Alternativa 1"
+            Content="5 Dedos"
             Value="errado"
             TextColor="Black"
             FontAttributes="Italic"
             CheckedChanged="Verificar"/>
         
         <RadioButton
-            Content="Alternativa 2"
+            Content="3 Dedos"
             Value="errado"
             TextColor="Black"
             FontAttributes="Italic"
             CheckedChanged="Verificar"/>
         
         <RadioButton
-            Content="Alternativa 3"
+            Content="4 Dedos"
             Value="certo"
             TextColor="Black"
             FontAttributes="Italic"
             CheckedChanged="Verificar"/>
         
         <RadioButton
-            Content="Alternativa 4"
+            Content="1 Dedos"
             Value="errado"
             TextColor="Black"
             FontAttributes="Italic"

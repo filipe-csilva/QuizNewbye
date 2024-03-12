@@ -40,15 +40,35 @@ public partial class Questao2 : ContentPage
         }
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    private async void Button_Clicked(object sender, EventArgs e)
     {
+        string? questao = await SecureStorage.GetAsync("questoes");
+
+        int quantidadeQuestao = int.Parse(questao!);
+
+        quantidadeQuestao++;
+
+        await SecureStorage.SetAsync("questoes", quantidadeQuestao.ToString());
+
         if (acerto)
         {
-            DisplayAlert("Resultado", "Você Acertou!", "OK");
+            await DisplayAlert("Resultado", "Você Acertou!\nForam adicionados 1 Pontos", "OK");
+
+            string? valor = await SecureStorage.GetAsync("parcial");
+
+            double parcial = double.Parse(valor!);
+
+            parcial = parcial + 1;
+
+            await SecureStorage.SetAsync("parcial", parcial.ToString());
+
+            await Navigation.PushAsync(new Resultado());
         }
         else
         {
-            DisplayAlert("Resultado", "Que pena, Você Errou!", "OK");
+            await DisplayAlert("Resultado", "Que pena, Você Errou!", "OK");
+
+            await Navigation.PushAsync(new Resultado());
         }
     }
 }
